@@ -31,6 +31,7 @@ import User from "./models/User.js";
 /* MONGOOSE SETUP */
 
 const PORT = process.env.PORT || 9000;
+mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
