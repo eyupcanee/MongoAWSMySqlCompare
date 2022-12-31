@@ -9,9 +9,10 @@ function App() {
   const [timeTookMongo, setTimeTookMongo] = useState();
   const [timeTookMySQL, setTimeTookMySQL] = useState();
   const [numberOfRecord, setNumberOfRecord] = useState(0);
-  const [awsId, setAwsId] = useState(0);
-  const [mongoId, setMongoId] = useState(0);
-  const [mysqlId, setMysqlId] = useState(0);
+  //const [awsId, setAwsId] = useState(0);
+  var awsId = 0;
+  var mongoId = 0;
+  var mysqlId = 0;
 
   const handleAWS = () => {
     const t0 = performance.now();
@@ -23,7 +24,10 @@ function App() {
         email: "eyupcanee@gmail.com",
         phoneNumber: "5465933941",
       });
-      setAwsId(awsId + 1);
+
+      ++awsId;
+
+      console.log(awsId);
     }
     const t1 = performance.now();
     setTimeTookAWS(t1 - t0);
@@ -41,12 +45,11 @@ function App() {
       })
         .then((res) => {
           console.log(res);
-          setMongoId(mongoId + 1);
         })
         .catch((err) => {
           console.log(err);
-          setMongoId(mongoId + 1);
         });
+      ++mongoId;
     }
     const t1 = performance.now();
     setTimeTookMongo(t1 - t0);
@@ -64,12 +67,11 @@ function App() {
       })
         .then((res) => {
           console.log(res);
-          setMysqlId(mysqlId + 1);
         })
         .catch((err) => {
           console.log(err);
-          setMysqlId(mysqlId + 1);
         });
+      ++mysqlId;
     }
     const t1 = performance.now();
     setTimeTookMySQL(t1 - t0);
@@ -96,11 +98,16 @@ function App() {
       <br />
       <br />
       <h3>AWS Hangi Id'den Başlasın</h3>
-      <input type="number" onChange={(e) => setAwsId(e.target.value)}></input>
+      <input
+        type="number"
+        onChange={(e) => {
+          awsId = e.target.value;
+        }}
+      ></input>
       <h3>MongoDB Hangi Id'den Başlasın</h3>
-      <input type="number" onChange={(e) => setMongoId(e.target.value)}></input>
+      <input type="number" onChange={(e) => (mongoId = e.target.value)}></input>
       <h3>MYSQL Hangi Id'den Başlasın</h3>
-      <input type="number" onChange={(e) => setMysqlId(e.target.value)}></input>
+      <input type="number" onChange={(e) => (mysqlId = e.target.value)}></input>
     </div>
   );
 }
