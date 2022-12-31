@@ -13,13 +13,13 @@ AWS.config.update({
 const dynamoDb = new AWS.DynamoDB();
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-export const insertUserViaAws = (data) => {
+export const insertUserViaAws = async (data) => {
   var params = {
     TableName: "compare",
     Item: data,
   };
 
-  docClient.put(params, function (err, data) {
+  await docClient.put(params, function (err, data) {
     if (err) {
       console.log(`Error : ${err}`);
     } else {
