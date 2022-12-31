@@ -16,14 +16,13 @@ function App() {
   const handleAWS = () => {
     const t0 = performance.now();
     for (let i = 0; i < numberOfRecord; i++) {
-      const userAWS = {
+      insertUserViaAws({
         id: parseInt(awsId, 10),
         name: "Eyup Can",
         surname: "Esen",
         email: "eyupcanee@gmail.com",
         phoneNumber: "5465933941",
-      };
-      insertUserViaAws(userAWS);
+      });
       setAwsId(awsId + 1);
     }
     const t1 = performance.now();
@@ -33,14 +32,13 @@ function App() {
   const handleMongo = () => {
     const t0 = performance.now();
     for (let i = 0; i < numberOfRecord; i++) {
-      const userMongo = {
+      insertUserViaMongo({
         id: mongoId,
         name: "Eyup Can",
         surname: "Esen",
         email: "eyupcanee@gmail.com",
         phoneNumber: "5465933941",
-      };
-      insertUserViaMongo(userMongo)
+      })
         .then((res) => {
           console.log(res);
           setMongoId(mongoId + 1);
@@ -57,14 +55,13 @@ function App() {
   const handleMySql = () => {
     const t0 = performance.now();
     for (let i = 0; i < numberOfRecord; i++) {
-      const userMySQL = {
+      insertUserViaMySql({
         id: mysqlId,
         name: "Eyup Can",
         surname: "Esen",
         email: "eyupcanee@gmail.com",
         phoneNumber: "5465933941",
-      };
-      insertUserViaMySql(userMySQL)
+      })
         .then((res) => {
           console.log(res);
           setMysqlId(mysqlId + 1);
