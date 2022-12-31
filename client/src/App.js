@@ -24,6 +24,7 @@ function App() {
         phoneNumber: "5465933941",
       };
       insertUserViaAws(userAWS);
+      setMysqlId(awsId + 1);
     }
     const t1 = performance.now();
     setTimeTookAWS(t1 - t0);
@@ -40,8 +41,14 @@ function App() {
         phoneNumber: "5465933941",
       };
       insertUserViaMongo(userMongo)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then((res) => {
+          console.log(res);
+          setMysqlId(mongoId + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+          setMysqlId(mongoId + 1);
+        });
     }
     const t1 = performance.now();
     setTimeTookMongo(t1 - t0);
@@ -58,8 +65,14 @@ function App() {
         phoneNumber: "5465933941",
       };
       insertUserViaMySql(userMySQL)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then((res) => {
+          console.log(res);
+          setMysqlId(mysqlId + 1);
+        })
+        .catch((err) => {
+          console.log(err);
+          setMysqlId(mysqlId + 1);
+        });
     }
     const t1 = performance.now();
     setTimeTookMySQL(t1 - t0);
