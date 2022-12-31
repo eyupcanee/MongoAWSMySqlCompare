@@ -102,12 +102,25 @@ function App() {
         type="number"
         onChange={(e) => {
           awsId = e.target.value;
+          console.log(awsId);
         }}
       ></input>
       <h3>MongoDB Hangi Id'den Başlasın</h3>
-      <input type="number" onChange={(e) => (mongoId = e.target.value)}></input>
+      <input
+        type="number"
+        onChange={(e) => {
+          mongoId = e.target.value;
+          console.log(mongoId);
+        }}
+      ></input>
       <h3>MYSQL Hangi Id'den Başlasın</h3>
-      <input type="number" onChange={(e) => (mysqlId = e.target.value)}></input>
+      <input
+        type="number"
+        onChange={(e) => {
+          mysqlId = e.target.value;
+          console.log(mysqlId);
+        }}
+      ></input>
     </div>
   );
 }
