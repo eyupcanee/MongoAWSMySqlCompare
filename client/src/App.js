@@ -9,10 +9,13 @@ function App() {
   const [timeTookMongo, setTimeTookMongo] = useState();
   const [timeTookMySQL, setTimeTookMySQL] = useState();
   const [numberOfRecord, setNumberOfRecord] = useState(0);
+  const [id1, setId1] = useState(0);
+  const [id2, setId2] = useState(0);
+  const [id3, setId3] = useState(0);
   //const [awsId, setAwsId] = useState(0);
-  var awsId = 0;
-  var mongoId = 0;
-  var mysqlId = 0;
+  var awsId = id1;
+  var mongoId = id2;
+  var mysqlId = id3;
 
   const handleAWS = () => {
     const t0 = performance.now();
@@ -101,7 +104,7 @@ function App() {
       <input
         type="number"
         onChange={(e) => {
-          awsId = e.target.value;
+          setId1(e.target.value);
           console.log(awsId);
         }}
       ></input>
@@ -109,7 +112,7 @@ function App() {
       <input
         type="number"
         onChange={(e) => {
-          mongoId = e.target.value;
+          setId2(e.target.value);
           console.log(mongoId);
         }}
       ></input>
@@ -117,7 +120,7 @@ function App() {
       <input
         type="number"
         onChange={(e) => {
-          mysqlId = e.target.value;
+          setId3(e.target.value);
           console.log(mysqlId);
         }}
       ></input>
