@@ -1,10 +1,13 @@
 import * as AWS from "aws-sdk";
 
+const acKey = process.env.REACT_APP_AWS_KEY;
+const acSecretKey = process.env.REACT_APP_AWS_SECRET_KEY;
+
 AWS.config.update({
   region: "eu-central-1",
   endpoint: "dynamodb.eu-central-1.amazonaws.com",
-  accessKeyId: "AKIATO5CPH6YQ4SSPOHD",
-  secretAccessKey: "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",
+  accessKeyId: acKey,
+  secretAccessKey: acSecretKey,
 });
 
 const dynamoDb = new AWS.DynamoDB();
