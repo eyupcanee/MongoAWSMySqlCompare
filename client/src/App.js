@@ -24,7 +24,7 @@ function App() {
         phoneNumber: "5465933941",
       };
       insertUserViaAws(userAWS);
-      setMysqlId(awsId + 1);
+      setAwsId(awsId + 1);
     }
     const t1 = performance.now();
     setTimeTookAWS(t1 - t0);
@@ -43,11 +43,11 @@ function App() {
       insertUserViaMongo(userMongo)
         .then((res) => {
           console.log(res);
-          setMysqlId(mongoId + 1);
+          setMongoId(mongoId + 1);
         })
         .catch((err) => {
           console.log(err);
-          setMysqlId(mongoId + 1);
+          setMongoId(mongoId + 1);
         });
     }
     const t1 = performance.now();
